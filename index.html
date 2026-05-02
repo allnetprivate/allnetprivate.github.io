@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+        :root {
+            --accent: #00d4ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: background 0.6s ease;
+            position: relative;
+        }
+
+        /* Красивый градиентный фон */
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 212, 255, 0.15), transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(120, 80, 255, 0.12), transparent 50%);
+            z-index: 1;
+            animation: bgShift 25s ease infinite;
+        }
+
+        body.light {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            color: #1e2937;
+        }
+
+        body.dark {
+            background: #0a0a0a;
+            color: #e2e8f0;
+        }
+
+        /* Текстурный слой */
+        body::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://i.ibb.co/HqRwCSL/Pattern-Copy-1.png');
+            background-size: cover;
+            opacity: 0.08;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 24px;
+            padding: 48px 42px;
+            max-width: 420px;
+            width: 92%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 10;
+            transition: all 0.4s ease;
+        }
+
+        .icon {
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+            animation: pulse 2s ease infinite;
+        }
+
+        .icon svg {
+            width: 42px;
+            height: 42px;
+            fill: white;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 32px auto;
+            padding: 18px 42px;
+            font-size: 19px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(90deg, #00d4ff, #7c3aed, #00d4ff);
+            background-size: 300% 300%;
+            border: none;
+            border-radius: 9999px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px -10px rgba(0, 212, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: gradientShift 6s ease infinite;
+        }
+
+        .button:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 20px 40px -10px rgba(0, 212, 255, 0.7);
+        }
+
+        .progress-container {
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, var(--accent), #a855f7);
+            transition: width 0.2s linear;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.5;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.5); }
+            50% { box-shadow: 0 0 50px rgba(0, 212, 255, 0.8); }
+        }
+
+        @keyframes bgShift {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(1deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M13 19V11H17L12 4L7 11H11V19H13Z"/>
+            </svg>
+        </div>
+        
+        <h1 id="title">Продолжить</h1>
+        
+        <a id="redirectLink" class="button" href="#">
+            Перейти
+        </a>
+        
+        <p id="instructions">Переадресация произойдёт автоматически через 5 секунд</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentURL = window.location.href;
+            let redirectTo = decodeURIComponent(currentURL.split('redirect_to=')[1] || '');
+
+            const isRussian = navigator.language.startsWith('ru');
+            
+            const titleEl = document.getElementById('title');
+            const linkEl = document.getElementById('redirectLink');
+            const instructionsEl = document.getElementById('instructions');
+            const progressBar = document.getElementById('progress');
+
+            // Тексты
+            if (isRussian) {
+                titleEl.textContent = 'Продолжить';
+                linkEl.textContent = 'Перейти дальше';
+                instructionsEl.textContent = 'Автоматическая переадресация через 5 секунд';
+            } else {
+                titleEl.textContent = 'Continue';
+                linkEl.textContent = 'Proceed';
+                instructionsEl.textContent = 'You will be redirected automatically in 5 seconds';
+            }
+
+            linkEl.href = redirectTo || '#';
+
+            // Темная/светлая тема
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark');
+            } else {
+                document.body.classList.add('light');
+            }
+
+            if (!redirectTo) {
+                alert(isRussian ? 'Не указана ссылка для перенаправления.' : 'No redirect link specified.');
+                return;
+            }
+
+            // Прогресс-бар
+            let timeLeft = 5000;
+            const interval = setInterval(() => {
+                timeLeft -= 50;
+                const percent = (timeLeft / 5000) * 100;
+                progressBar.style.width = `${percent}%`;
+                
+                if (timeLeft <= 0) clearInterval(interval);
+            }, 50);
+
+            // Автопереадресация
+            const redirectTimer = setTimeout(() => {
+                window.location.href = redirectTo;
+            }, 5000);
+
+            // Сброс таймера при клике
+            linkEl.addEventListener('click', () => {
+                clearTimeout(redirectTimer);
+                clearInterval(interval);
+            });
+        });
+    </script>
+</body>
+</html>
