@@ -182,6 +182,32 @@
         color: var(--text);
       }
 
+      .form-data {
+        margin: 18px 0 0;
+        border-top: 1px solid var(--accent-muted);
+      }
+
+      .form-data div {
+        min-height: 44px;
+        padding: 10px 0;
+        display: grid;
+        grid-template-columns: minmax(110px, 0.65fr) 1fr;
+        align-items: center;
+        gap: 14px;
+        border-bottom: 1px solid rgba(255, 253, 249, 0.13);
+      }
+
+      .form-data dt {
+        color: var(--muted);
+      }
+
+      .form-data dd {
+        margin: 0;
+        color: var(--text);
+        font-weight: 700;
+        overflow-wrap: anywhere;
+      }
+
       .download-link {
         min-height: 76px;
         margin-top: 28px;
@@ -334,7 +360,7 @@
       <aside class="notice">
         <strong>Перед началом</strong>
         <p>
-          Apple может не разрешить смену региона, если на счёте остались средства, действуют мешающие смене региона подписки или аккаунт состоит в группе «Семейный доступ». Также могут потребоваться действующие платёжные данные и адрес выставления счетов для Казахстана.
+          Apple может не разрешить смену региона, если на счёте остались средства, действуют мешающие смене региона подписки или аккаунт состоит в группе «Семейный доступ».
           <a href="https://support.apple.com/ru-ru/118283" target="_blank" rel="noopener noreferrer">Подробнее на сайте Apple ↗</a>
         </p>
       </aside>
@@ -367,10 +393,22 @@
           </li>
 
           <li class="step">
-            <h3>Заполните данные</h3>
+            <h3>Выберите «Нет»</h3>
             <p>
-              Выберите доступный способ оплаты и укажите действительные платёжные данные и адрес выставления счетов. Нажмите «Готово».
+              В разделе «Способ оплаты» выберите <span class="path">Нет (None)</span>. Затем заполните форму по примеру:
             </p>
+
+            <dl class="form-data">
+              <div><dt>Улица</dt><dd>Нур-Султан</dd></div>
+              <div><dt>Улица 2</dt><dd>Оставить пустым</dd></div>
+              <div><dt>Город</dt><dd>Нур-Султан</dd></div>
+              <div><dt>Область</dt><dd>Pavlodar</dd></div>
+              <div><dt>Индекс</dt><dd>101000</dd></div>
+              <div><dt>Страна</dt><dd>Kazakhstan</dd></div>
+              <div><dt>Телефон</dt><dd>999 9999999</dd></div>
+            </dl>
+
+            <p>После заполнения нажмите «Готово».</p>
           </li>
 
           <li class="step">
