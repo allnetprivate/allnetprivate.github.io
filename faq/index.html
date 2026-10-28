@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Инструкция для iPhone: как сменить регион App Store на Казахстан и установить Happ."
+    />
+    <meta name="theme-color" content="#12100f" />
+    <title>Установка Happ на iPhone — AllNet Private</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #12100f;
+        --surface: #191615;
+        --surface-soft: #151312;
+        --text: #fffdf9;
+        --muted: #b9b4ae;
+        --accent: #64ff73;
+        --accent-muted: rgba(100, 255, 115, 0.28);
+        --content: 920px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--bg);
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100svh;
+        margin: 0;
+        background:
+          radial-gradient(circle at 50% -10%, rgba(100, 255, 115, 0.06), transparent 30%),
+          var(--bg);
+        color: var(--text);
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(calc(100% - 40px), var(--content));
+        margin: 0 auto;
+        padding: 28px 0 64px;
+      }
+
+      .topbar {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid var(--accent-muted);
+      }
+
+      .back-link,
+      .topbar__label {
+        color: var(--accent);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+
+      .hero {
+        padding: clamp(50px, 10vw, 92px) 0 clamp(38px, 7vw, 64px);
+        text-align: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: clamp(0.85rem, 1.8vw, 1rem);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin: 0 auto;
+        font-size: clamp(2.35rem, 6.2vw, 4.8rem);
+        line-height: 1.03;
+        letter-spacing: -0.045em;
+      }
+
+      .lead {
+        max-width: 700px;
+        margin: 24px auto 0;
+        color: var(--accent);
+        font-size: clamp(1.05rem, 2.7vw, 1.45rem);
+        line-height: 1.55;
+      }
+
+      .notice {
+        margin-bottom: 44px;
+        padding: 22px 24px;
+        border: 1px solid var(--accent-muted);
+        background: rgba(100, 255, 115, 0.035);
+      }
+
+      .notice strong {
+        color: var(--accent);
+      }
+
+      .notice p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .notice a {
+        color: var(--accent);
+        text-underline-offset: 4px;
+      }
+
+      .section-title {
+        margin: 0 0 24px;
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
+      }
+
+      .steps {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 14px;
+        list-style: none;
+        counter-reset: step;
+      }
+
+      .step {
+        min-height: 112px;
+        padding: 24px 26px 24px 88px;
+        position: relative;
+        border: 1px solid rgba(255, 253, 249, 0.28);
+        background: var(--surface-soft);
+        counter-increment: step;
+      }
+
+      .step::before {
+        content: counter(step, decimal-leading-zero);
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 22px;
+        top: 23px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .step h3 {
+        margin: 0;
+        color: var(--accent);
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+      }
+
+      .step p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .path {
+        color: var(--text);
+      }
+
+      .download-link {
+        min-height: 76px;
+        margin-top: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        border: 2px solid var(--text);
+        background: var(--surface);
+        box-shadow: 7px 7px 0 rgba(100, 255, 115, 0.7);
+        color: var(--text);
+        font-size: clamp(1rem, 2.4vw, 1.25rem);
+        text-align: center;
+        text-decoration: none;
+        transition:
+          color 160ms ease,
+          border-color 160ms ease,
+          box-shadow 160ms ease,
+          transform 160ms ease;
+      }
+
+      .download-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        box-shadow: 3px 3px 0 rgba(100, 255, 115, 0.72);
+        transform: translate(4px, 4px);
+      }
+
+      .download-link:focus-visible,
+      .back-link:focus-visible,
+      .support-link:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 5px;
+      }
+
+      .video-section {
+        margin-top: clamp(60px, 10vw, 92px);
+        padding-top: clamp(42px, 7vw, 64px);
+        border-top: 1px solid var(--accent-muted);
+      }
+
+      .video-section__copy {
+        margin: -12px 0 24px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .video-frame {
+        padding: 8px;
+        border: 1px solid rgba(255, 253, 249, 0.35);
+        background: #000;
+        box-shadow: 7px 7px 0 rgba(100, 255, 115, 0.52);
+      }
+
+      video {
+        width: 100%;
+        max-height: min(78svh, 760px);
+        display: block;
+        background: #000;
+      }
+
+      .footer {
+        margin-top: 56px;
+        padding-top: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        border-top: 1px solid var(--accent-muted);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .support-link {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .support-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+
+      @media (max-width: 620px) {
+        .page {
+          width: min(calc(100% - 28px), var(--content));
+          padding-top: 16px;
+        }
+
+        .hero {
+          padding-top: 44px;
+        }
+
+        .notice {
+          padding: 18px;
+        }
+
+        .step {
+          min-height: 0;
+          padding: 76px 18px 20px;
+        }
+
+        .step::before {
+          left: 18px;
+          top: 16px;
+          width: 44px;
+          height: 44px;
+        }
+
+        .download-link {
+          min-height: 68px;
+          padding: 12px 18px;
+          box-shadow: 5px 5px 0 rgba(100, 255, 115, 0.7);
+        }
+
+        .video-frame {
+          padding: 4px;
+          box-shadow: 5px 5px 0 rgba(100, 255, 115, 0.52);
+        }
+
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topbar" aria-label="Навигация">
+        <a class="back-link" href="/support/">← Поддержка</a>
+        <span class="topbar__label">FAQ / iPhone</span>
+      </nav>
+
+      <header class="hero">
+        <p class="eyebrow">Пошаговая инструкция</p>
+        <h1>Как скачать Happ на iPhone</h1>
+        <p class="lead">Смените регион App Store на Казахстан, затем установите приложение по прямой ссылке.</p>
+      </header>
+
+      <aside class="notice">
+        <strong>Перед началом</strong>
+        <p>
+          Apple может не разрешить смену региона, если на счёте остались средства, действуют мешающие смене региона подписки или аккаунт состоит в группе «Семейный доступ». Также могут потребоваться действующие платёжные данные и адрес выставления счетов для Казахстана.
+          <a href="https://support.apple.com/ru-ru/118283" target="_blank" rel="noopener noreferrer">Подробнее на сайте Apple ↗</a>
+        </p>
+      </aside>
+
+      <section aria-labelledby="steps-title">
+        <h2 class="section-title" id="steps-title">Смена региона</h2>
+
+        <ol class="steps">
+          <li class="step">
+            <h3>Откройте настройки аккаунта</h3>
+            <p>
+              Перейдите по пути:
+              <span class="path">Настройки → ваше имя → Медиаматериалы и покупки</span>.
+              При необходимости нажмите «Просмотреть» и подтвердите вход.
+            </p>
+          </li>
+
+          <li class="step">
+            <h3>Откройте выбор страны</h3>
+            <p>
+              Нажмите <span class="path">Страна/регион → Изменить страну или регион</span>.
+            </p>
+          </li>
+
+          <li class="step">
+            <h3>Выберите Казахстан</h3>
+            <p>
+              Найдите в списке <span class="path">Казахстан</span>, нажмите «Продолжить» и примите условия Apple.
+            </p>
+          </li>
+
+          <li class="step">
+            <h3>Заполните данные</h3>
+            <p>
+              Выберите доступный способ оплаты и укажите действительные платёжные данные и адрес выставления счетов. Нажмите «Готово».
+            </p>
+          </li>
+
+          <li class="step">
+            <h3>Установите Happ</h3>
+            <p>
+              Откройте приложение по кнопке ниже в App Store и нажмите «Загрузить».
+            </p>
+          </li>
+        </ol>
+
+        <a
+          class="download-link"
+          href="https://apps.apple.com/kz/app/happ-proxy-utility/id6504287215"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Скачать Happ в App Store ↗
+        </a>
+      </section>
+
+      <section class="video-section" aria-labelledby="video-title">
+        <h2 class="section-title" id="video-title">Видеоинструкция</h2>
+        <p class="video-section__copy">Если удобнее повторять по экрану, включите ролик и выполняйте действия по порядку.</p>
+
+        <div class="video-frame">
+          <video controls playsinline preload="metadata" poster="./poster.png">
+            <source src="./RKN.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает воспроизведение видео.
+          </video>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>AllNet Private · FAQ</span>
+        <a class="support-link" href="/support/">Связаться с поддержкой →</a>
+      </footer>
+    </main>
+  </body>
+</html>
